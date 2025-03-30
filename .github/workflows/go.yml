@@ -27,4 +27,4 @@ jobs:
         mkdir .tmp
 
     - name: Get Directory
-      run: ls -al script
+      run: ls -al /home/runner/work/zenki209/zenki209
