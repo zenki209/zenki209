@@ -26,5 +26,8 @@ jobs:
         export PATH=$PATH:$(go env GOPATH)/bin
         mkdir .tmp
 
+    - name: Run
+      run: go run /home/runner/work/zenki209/zenki209/script/*.go
+
     - name: Get Directory
-      run: ls -al /home/runner/work/zenki209/zenki209
+      run: ls -al /home/runner/work/zenki209/zenki209/script
