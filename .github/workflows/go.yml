@@ -27,7 +27,10 @@ jobs:
         mkdir .tmp
 
     - name: Run
-      run: go run /home/runner/work/zenki209/zenki209/script/*.go
+      run: | 
+        cd /home/runner/work/zenki209/zenki209/script/
+        go mod tidy
+        go run *.go
 
     - name: Get Directory
       run: ls -al /home/runner/work/zenki209/zenki209/script
