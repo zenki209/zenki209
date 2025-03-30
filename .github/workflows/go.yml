@@ -9,6 +9,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions: write-all
+
 jobs:
 
   build:
@@ -50,3 +52,5 @@ jobs:
           git rebase main
           git push origin main
         fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
