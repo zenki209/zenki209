@@ -34,7 +34,13 @@ Feel free to reach out, share ideas, or collaborate on something fun!
 Thanks for stopping by! 🌱
 
 
-# 🌤️ Weather Report in HCMC
+# Weather Forecast 🌦️
 
-- 📍 Location: {{ .LocationName }} ({{ .Latitude }}, {{ .Longitude }})
-- 🌡️ Temperature: {{ printf "%.1f" .Temperature }}°C {{ .Emoji }}
+Here's the 7-day weather forecast for Ho Chi Minh City:
+
+| Date     | 2025-03-31  | 2025-04-01  | 2025-04-02  | 2025-04-03  | 2025-04-04  | 2025-04-05  | 2025-04-06 |
+| -------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ---------- |
+| Temp °C  | 33.0 ☀️     | 31.0 ☀️     | 30.6 ☀️     | 33.7 ☀️     | 33.5 ☀️     | 34.1 ☀️     | 35.3 🔥     |
+
+
+> Data from [Open-Meteo](https://open-meteo.com)
