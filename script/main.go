@@ -16,30 +16,50 @@ type WeatherResponse struct {
 	Daily struct {
 		Time             []string  `json:"time"`
 		Temperature2mMax []float64 `json:"temperature_2m_max"`
+		WeatherCode      []int     `json:"weather_code"`
 	} `json:"daily"`
 }
 
-func getTemperatureEmoji(temp float64) string {
-	switch {
-	case temp >= 35:
-		return "🔥" // Very hot
-	case temp >= 30:
-		return "☀️" // Hot
-	case temp >= 25:
-		return "⛅" // Warm
-	case temp >= 20:
-		return "😊" // Pleasant
-	case temp >= 15:
-		return "🌥️" // Cool
-	case temp >= 10:
-		return "❄️" // Cold
-	default:
-		return "🥶" // Very cold
+func getTemperatureEmoji(code int) string {
+	codeMap := map[int]string{
+		0:  "☀️",   // Clear sky
+		1:  "🌤️",   // Mainly clear
+		2:  "⛅",    // Partly cloudy
+		3:  "☁️",   // Overcast
+		45: "🌫️",   // Fog
+		48: "🌫️",   // Depositing rime fog
+		51: "🌦️",   // Light drizzle
+		53: "🌦️",   // Moderate drizzle
+		55: "🌧️",   // Dense drizzle
+		56: "🌧️❄️", // Light freezing drizzle
+		57: "🌧️❄️", // Dense freezing drizzle
+		61: "🌧️",   // Slight rain
+		63: "🌧️",   // Moderate rain
+		65: "🌧️",   // Heavy rain
+		66: "🌧️❄️", // Light freezing rain
+		67: "🌧️❄️", // Heavy freezing rain
+		71: "🌨️",   // Slight snow fall
+		73: "🌨️",   // Moderate snow fall
+		75: "❄️",   // Heavy snow fall
+		77: "❄️",   // Snow grains
+		80: "🌧️",   // Slight rain showers
+		81: "🌧️",   // Moderate rain showers
+		82: "🌧️",   // Violent rain showers
+		85: "🌨️",   // Slight snow showers
+		86: "❄️",   // Heavy snow showers
+		95: "⛈️",   // Thunderstorm
+		96: "⛈️⚡",  // Thunderstorm with slight hail
+		99: "⛈️❄️", // Thunderstorm with heavy hail
 	}
+
+	if emoji, exists := codeMap[code]; exists {
+		return emoji
+	}
+	return "❓"
 }
 
 func main() {
-	resp, err := http.Get("https://api.open-meteo.com/v1/forecast?latitude=10.823&longitude=106.6296&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FBangkok&forecast_days=7")
+	resp, err := http.Get("https://api.open-meteo.com/v1/forecast?latitude=10.823&longitude=106.6296&daily=temperature_2m_max,weather_code&timezone=Asia%2FSingapore")
 	if err != nil {
 		fmt.Println("Error fetching data:", err)
 		return
@@ -67,13 +87,18 @@ func main() {
 	//Prepare Header
 	headers := append([]string{"Date"}, weather.Daily.Time...)
 	var maxTemps []string
+	var weatherCode []string
 	for _, temp := range weather.Daily.Temperature2mMax {
-		maxTemps = append(maxTemps, fmt.Sprintf("%.1f %s", temp, getTemperatureEmoji(temp)))
+		maxTemps = append(maxTemps, fmt.Sprintf("%.1f", temp))
+	}
+	for _, weather := range weather.Daily.WeatherCode {
+		weatherCode = append(weatherCode, getTemperatureEmoji(weather))
 	}
 
 	// Each row must be []string with same length as headers
 	rows := [][]string{
 		append([]string{"Temp °C"}, maxTemps...),
+		append([]string{"Weather"}, weatherCode...),
 	}
 
 	// Format table
