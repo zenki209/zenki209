@@ -25,10 +25,6 @@ Hi, I’m a **System Engineer** who loves diving into the world of **programming
 
 Feel free to reach out, share ideas, or collaborate on something fun!
 
-- ✉️ Email: khoa.trinh@hotmail.com
-- 🔗 LinkedIn: [https://linkedin.com/in/zenki209](https://linkedin.com/in/zenki209)  
-- 💻 GitHub: [https://github.com/zenki209](https://github.com/zenki209)
-
 ---
 
 Thanks for stopping by! 🌱
