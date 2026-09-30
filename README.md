@@ -25,6 +25,10 @@ Hi, I’m a **System Engineer** who loves diving into the world of **programming
 
 Feel free to reach out, share ideas, or collaborate on something fun!
 
+- ✉️ Email: khoa.trinh@hotmail.com
+- 🔗 LinkedIn: [https://linkedin.com/in/zenki209](https://linkedin.com/in/zenki209)  
+- 💻 GitHub: [https://github.com/zenki209](https://github.com/zenki209)
+
 ---
 
 Thanks for stopping by! 🌱
@@ -34,10 +38,10 @@ Thanks for stopping by! 🌱
 
 Here's the 7-day weather forecast for Ho Chi Minh City:
 
-| Date     | 2026-09-29 | 2026-09-30 | 2026-10-01 | 2026-10-02 | 2026-10-03 | 2026-10-04 | 2026-10-05 |
+| Date     | 2026-09-30 | 2026-10-01 | 2026-10-02 | 2026-10-03 | 2026-10-04 | 2026-10-05 | 2026-10-06 |
 | -------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
-| Temp °C  | 32.9       | 32.4       | 32.5       | 31.6       | 30.9       | 32.3       | 31.6       |
-| Weather  | 🌦️         | ⛈️         | 🌦️         | 🌧️         | 🌧️         | ⛈️         | ⛈️         |
+| Temp °C  | 32.7       | 32.3       | 31.3       | 31.4       | 32.4       | 32.3       | 31.8       |
+| Weather  | ⛈️         | ⛈️         | ⛈️         | ⛈️         | 🌧️         | ⛈️         | ⛈️         |
 
 
 > Data from [Open-Meteo](https://open-meteo.com)
